@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
+
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -13,6 +14,7 @@ import salesRoutes from "./routes/sales.js";
 
 /* CONFIGURATIONS */
 dotenv.config()
+
 const app = express();
 app.use(express.json());
 app.use(helmet());
@@ -22,20 +24,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 
+
 /* ROUTES */
-app.use("./client", clientRoutes);
+app.get("/", (req, res, next)=> {
+    res.send("Hello world!")
+})                                          //Discuss with Alex why this should be added
+app.use(express.static("public"));
+app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
-app.use("sales", salesRoutes);
+app.use("/sales", salesRoutes);
 
 /* MONGOOSE SETUP*/
 
 const PORT = process.env.PORT || 9000;
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,    
+    useUnifiedTopology: true, 
 })
 .then(()=> {
     app.listen(PORT, ()=> console.log(`Server port" ${PORT}`));
 })
-.catch((error)=> console.log(`${error} did not connect`))
+.catch((error)=> console.log(`Server issue: ${error}`))
