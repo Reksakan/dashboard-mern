@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Dashboard from "./scenes/dashboard/index";
 import Layout from "./scenes/layout/index";
+import Products from "scenes/products";
 // import Dashboard from "scences/dashboard";
 // import Layout from "scences/layout";
 
@@ -22,6 +23,7 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace/>} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/products" element={<Products />}/>
             </Route>
           </Routes>
         </ThemeProvider>  
