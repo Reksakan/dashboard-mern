@@ -1,15 +1,13 @@
 import React, { useMemo } from 'react';
 import { CssBaseline, ThemeProvider } from "@mui/material";
-// import createTheme from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import { createTheme } from '@mui/material/styles'
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import Dashboard from "./scenes/dashboard/index";
-import Layout from "./scenes/layout/index";
+import Dashboard from "scenes/dashboard";
+import Layout from "scenes/layout";
 import Products from "scenes/products";
-// import Dashboard from "scences/dashboard";
-// import Layout from "scences/layout";
+import Customers from "scenes/customers";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -23,7 +21,8 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace/>} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/products" element={<Products />}/>
+              <Route path="/products" element={<Products />} />
+              <Route path="/customers" element={<Customers />} />
             </Route>
           </Routes>
         </ThemeProvider>  
