@@ -31,3 +31,12 @@ export const getCustomers = async (req, res) => {
     res.status(404).json({ message: error.message})
   }
 }
+
+export const getTransactions = async (req, res) => {
+  try {
+    //Sort should look like this {"field": "userId", "sort": "desc"}
+    const { page = 1, pageSize = 20, sort = null, search = "" } = req.query;
+  } catch (error) {
+    res.status(404).json({ message: error.message})
+  }
+}
