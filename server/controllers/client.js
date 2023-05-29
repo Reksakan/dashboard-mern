@@ -76,7 +76,6 @@ export const getTransactions = async (req, res) => {
 export const getGeography = async (req, res) => {
   try {
     const users = await User.find();
-
     const mappedLocations = users.reduce((acc, { country }) => {
       const countryISO3 = getCountryIso3(country);
       if (!acc[countryISO3]) {
@@ -86,7 +85,7 @@ export const getGeography = async (req, res) => {
       return acc;
     }, {});
 
-    const formattedLocation = Object.entries(mappedLocations).map(
+    const formattedLocations = Object.entries(mappedLocations).map(
       ([country, count]) => {
         return { id: country, value: count}
       }
