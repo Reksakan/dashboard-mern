@@ -6,8 +6,9 @@ import { useGetSalesQuery } from 'state/api';
 const OverviewChart = ({isDashboard = false, view }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
+  
   console.log('data: ', data);
-  console.log('isLoading: ', isLoading);
+  // console.log('isLoading: ', isLoading);
 
   return (
     <div>OverviewChart</div>

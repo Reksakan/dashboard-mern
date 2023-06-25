@@ -3,7 +3,7 @@ import { FormControl, MenuItem, InputLabel, Box, Select } from "@mui/material";
 import Header from "components/Header";
 import OverviewChart from "components/OverviewChart";
 
-function Overview () {
+const Overview = () => {
   const [ view, setView ] = useState("units");
 
   return (
