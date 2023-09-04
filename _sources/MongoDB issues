@@ -1,0 +1,9 @@
+
+ISSUE: "Server issue: Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.zlgfnvn.mongodb.net"
+Reason: Your IP address has been changed & you need to add your new IP to Mongo Atlas following next steps
+1. Go to www.cloud.mongodb.com
+2. Login
+3. Go to "Security / Network Access"
+4. Click "ADD IP ADDRESS" -> "Current IP Address"
+5. You might also need if your cluster is active. 
+5-1. Go to Database > and activate (resume) it. 

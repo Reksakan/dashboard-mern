@@ -36,7 +36,7 @@ const Navbar = ({
   const isOpen = Boolean(anchorEl);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
-
+  
   return <AppBar
     sx={{
       position: "static",
